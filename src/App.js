@@ -18,19 +18,19 @@ class App extends Component {
   componentDidMount() {
     // const { items } = this.props;
     console.log('CDM');
-    if (this.props.items.length === 0) {
-      this.fetchData(this.props.filter);
-      console.log('CDM fetching...');
-    }
+    // if (this.props.items.length === 0) {
+    this.fetchData(this.props.filter);
+    console.log('CDM fetching...');
+    // }
   }
 
   componentWillReceiveProps(nextProps) {
     // Fix: Two childs with the same key
     if (nextProps.filter !== this.props.filter) {
-      if (nextProps.items.length === 0) {
-        this.fetchData(nextProps.filter);
-      }
-      console.log(nextProps.filter);
+      // if (nextProps.items.length === 0) {
+      this.fetchData(nextProps.filter);
+      // }
+      // console.log(nextProps.filter);
     }
   }
 
@@ -67,7 +67,7 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
         />
 
-        <TodoList todos={this.props.items} />
+        <TodoList todos={this.props.items} toggleTodo={this.props.toggleTodo} />
       </div>
     );
   }
@@ -86,4 +86,5 @@ function mapStateToProps(state, { match }) {
 export default connect(mapStateToProps, {
   getTodos: actions.getTodos,
   addTodo: actions.addTodo,
+  toggleTodo: actions.toggleTodo,
 })(App);

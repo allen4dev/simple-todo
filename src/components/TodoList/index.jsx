@@ -4,10 +4,12 @@ import Todo from './../Todo';
 
 import './index.css';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, toggleTodo }) => {
   return (
     <ul className="TodoList">
-      {todos.map(todo => <Todo key={todo.id} {...todo} />).reverse()}
+      {todos
+        .map(todo => <Todo key={todo.id} {...todo} toggleTodo={toggleTodo} />)
+        .reverse()}
     </ul>
   );
 };

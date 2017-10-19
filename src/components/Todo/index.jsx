@@ -4,7 +4,9 @@ import './index.css';
 
 const Todo = props => {
   return (
-    <li className="Todo">
+    <li
+      onClick={() => props.toggleTodo(props.id)}
+      className={`Todo ${props.completed ? 'Todo-completed' : ''}`}>
       <p className="Todo-text">{props.text}</p>
     </li>
   );

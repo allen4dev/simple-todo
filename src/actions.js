@@ -20,6 +20,13 @@ export function setTodo(filter, response) {
   };
 }
 
+export function updateTodo(toggledId, response) {
+  return {
+    type: actionTypes.TOGGLE_TODO,
+    payload: { toggledId, response },
+  };
+}
+
 // Async actions
 export function getTodos(filter) {
   return async dispatch => {
@@ -40,6 +47,17 @@ export function addTodo(filter, text) {
     console.log('NORMALIZED_TODO:', response);
 
     dispatch(setTodo(filter, response));
+
+    return response;
+  };
+}
+
+export function toggleTodo(id) {
+  return async dispatch => {
+    const result = await api.toggleTodo(id);
+    const response = normalize(result, schemas.todoSchema);
+
+    dispatch(updateTodo(response.result, response));
 
     return response;
   };
