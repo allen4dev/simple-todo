@@ -13,10 +13,10 @@ export function setTodos(filter, response) {
   };
 }
 
-export function setTodo(response) {
+export function setTodo(filter, response) {
   return {
     type: actionTypes.SET_TODO,
-    payload: { response },
+    payload: { filter, response },
   };
 }
 
@@ -33,13 +33,13 @@ export function getTodos(filter) {
   };
 }
 
-export function addTodo(text) {
+export function addTodo(filter, text) {
   return async dispatch => {
     const result = await api.addTodo(text);
     const response = normalize(result, schemas.todoSchema);
     console.log('NORMALIZED_TODO:', response);
 
-    dispatch(setTodo(response));
+    dispatch(setTodo(filter, response));
 
     return response;
   };

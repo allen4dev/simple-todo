@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './index.css';
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <form className="Form">
-        <input className="Form-input" type="text" placeholder="Add new todo" />
-      </form>
-    );
-  }
-}
+const Form = ({ placeholder, value, handleChange, handleSubmit }) => {
+  return (
+    <form className="Form" onSubmit={handleSubmit}>
+      <input
+        className="Form-input"
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+    </form>
+  );
+};
 
 export default Form;

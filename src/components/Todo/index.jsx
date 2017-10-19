@@ -2,11 +2,10 @@ import React from 'react';
 
 import './index.css';
 
-const Todo = () => {
+const Todo = props => {
   return (
     <li className="Todo">
-      <p className="Todo-text">Watch the live</p>
-      <span className="Todo-date">Some Timestamp</span>
+      <p className="Todo-text">{props.text}</p>
     </li>
   );
 };

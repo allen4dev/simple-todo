@@ -30,7 +30,7 @@ function createList(filter) {
     if (!action.payload || action.payload.filter !== filter) {
       return state;
     }
-    console.log('REDUCER FILTER', filter);
+
     switch (action.type) {
       case actionTypes.SET_TODOS:
         return action.payload.response.result;

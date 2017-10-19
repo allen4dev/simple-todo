@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TodoList from './components/TodoList';
+import Form from './components/Form';
 import VisibilityFilters from './components/VisibilityFilters';
 
 import './App.css';
@@ -11,6 +12,7 @@ import * as actions from './actions';
 class App extends Component {
   state = {
     loading: true,
+    value: '',
   };
 
   componentDidMount() {
@@ -40,10 +42,31 @@ class App extends Component {
     this.setState({ loading: false });
   };
 
+  handleChange = e => {
+    const value = e.target.value;
+
+    this.setState({ value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    this.props.addTodo(this.props.filter, this.state.value);
+    this.setState({ value: '' });
+  };
+
   render() {
     return (
       <div className="App">
         <VisibilityFilters />
+
+        <Form
+          placeholder="Add todo"
+          value={this.state.value}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+
         <TodoList todos={this.props.items} />
       </div>
     );
