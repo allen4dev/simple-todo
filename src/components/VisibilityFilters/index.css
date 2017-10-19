@@ -1,0 +1,18 @@
+.link-active {
+  color: hotpink;
+}
+
+.VisibilityFilters {
+  margin-bottom: 2em;
+}
+
+.VisibilityFilters-link {
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.VisibilityFilters-link:not(:last-child) {
+  margin-right: 1em;
+}

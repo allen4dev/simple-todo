@@ -1,0 +1,9 @@
+.TodoList {
+  border-bottom: 10px solid var(--accent);
+  width: 50%;
+}
+
+.TodoList-list {
+  height: 70vh;
+  overflow-y: scroll;
+}

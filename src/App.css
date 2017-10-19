@@ -1,0 +1,35 @@
+:root {
+  --main: #14cca0;
+  --main-dark: #12b790;
+  --main-light: #71d4bc;
+  --accent: #ffe082;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.App {
+  background-color: var(--main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
